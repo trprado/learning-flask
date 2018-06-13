@@ -60,10 +60,10 @@ def login():
 
         print(password)
 
-        if email is None:
-            error = 'Incorrect email or password.'
-        elif user is None or not check_password_hash(user['password'], password):
-            error = 'Incorrect email or password.'
+        if user is None:
+            error = 'Incorrect email.'
+        elif not check_password_hash(user['password'], password):
+            error = 'Incorrect password.'
 
         if error is None:
             session.clear()
